@@ -1,3 +1,4 @@
+cat > .github/workflows/ci.yml <<'EOF'
 name: CI
 
 on:
@@ -26,13 +27,14 @@ jobs:
           else
             echo "No Deno test files found. Creating a basic sample test..."
             mkdir -p tests
-            cat > tests/sample.test.ts <<'EOF'
+            cat > tests/sample.test.ts <<'EOF2'
             Deno.test("sample test", () => {
               const value = 2 + 2;
               if (value !== 4) {
                 throw new Error(`Expected 4, got ${value}`);
               }
             });
-            EOF
+            EOF2
             deno test -A tests
           fi
+EOF
