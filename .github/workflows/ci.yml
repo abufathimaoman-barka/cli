@@ -37,4 +37,3 @@ jobs:
             EOF2
             deno test -A tests
           fi
-EOF
